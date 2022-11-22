@@ -45,12 +45,13 @@
     <div class="chartCard">
       <div class="chartBox">
         <canvas id="myChart"></canvas>
+         <button onclick="chartType('bar')">Bar Chart</button>
+         <button onclick="chartType('line')">Line Chart</button>
+         <button onclick="chartType('pie')">Pie Chart</button>
       </div>
     </div>
 
-    <button onclick="chartType('bar')">Bar Chart</button>
-    <button onclick="chartType('line')">Line Chart</button>
-    <button onclick="chartType('pie')">Pie Chart</button>
+   
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
@@ -85,7 +86,7 @@
 
     // config 
     const config = {
-      type: 'line',
+      type: 'bar',
       data,
       options: {
         scales: {
@@ -98,7 +99,7 @@
 
     // config 
     const config2 = {
-      type: 'bar',
+      type: 'line',
       data,
       options: {
         scales: {
@@ -129,14 +130,14 @@
     function chartType(type){
         //destroy chart
         myChart.destroy();
-        if(type === 'line'){
+        if(type === 'bar'){
             myChart = new Chart(
             document.getElementById('myChart'),
             config
             );
         }
 
-        if(type === 'bar'){
+        if(type === 'line'){
             myChart = new Chart(
             document.getElementById('myChart'),
             config2
